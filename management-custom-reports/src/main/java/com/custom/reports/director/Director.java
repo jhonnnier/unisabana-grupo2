@@ -1,19 +1,19 @@
-package com.custom.reports;
+package com.custom.reports.director;
 
-import com.custom.reports.DTO.StatisticalChartsDTO;
-import com.custom.reports.reportContent.Footer;
-import com.custom.reports.reportContent.ReportCover;
-import com.custom.reports.reportContent.StatisticalCharts;
+import com.custom.reports.dto.StatisticalChartsDTO;
+import com.custom.reports.builders.Builder;
+import com.custom.reports.components.Footer;
+import com.custom.reports.components.ReportCover;
+import com.custom.reports.components.StatisticalCharts;
 
 import java.util.List;
 
 public class Director {
 
     public void buildReport1(Builder builder) {
-        builder.setReportCover(new ReportCover("Reporte detallado # 1"));
-        builder.setStatisticalCharts(StatisticalCharts.builder()
-                .title("Datos estadisticos")
-                .investment(List.of(
+        buildReport(builder,
+                "Reporte detallado # 1",
+                List.of(
                         new StatisticalChartsDTO("Ene", 35),
                         new StatisticalChartsDTO("Feb", 59),
                         new StatisticalChartsDTO("Mar", 80),
@@ -21,7 +21,8 @@ public class Director {
                         new StatisticalChartsDTO("May", 56),
                         new StatisticalChartsDTO("Jun", 55),
                         new StatisticalChartsDTO("Jul", 40)
-                )).savings(List.of(
+                ),
+                List.of(
                         new StatisticalChartsDTO("Ene", 10),
                         new StatisticalChartsDTO("Feb", 5),
                         new StatisticalChartsDTO("Mar", 8),
@@ -29,17 +30,14 @@ public class Director {
                         new StatisticalChartsDTO("May", 0),
                         new StatisticalChartsDTO("Jun", 55),
                         new StatisticalChartsDTO("Jul", 40)
-                ))
-                .build()
+                )
         );
-        builder.setFooter(getFooter());
     }
 
     public void buildReport2(Builder builder) {
-        builder.setReportCover(new ReportCover("Reporte detallado # 2"));
-        builder.setStatisticalCharts(StatisticalCharts.builder()
-                .title("Datos estadisticos")
-                .investment(List.of(
+        buildReport(builder,
+                "Reporte detallado # 2",
+                List.of(
                         new StatisticalChartsDTO("Ene", 5),
                         new StatisticalChartsDTO("Feb", 10),
                         new StatisticalChartsDTO("Mar", 15),
@@ -47,7 +45,8 @@ public class Director {
                         new StatisticalChartsDTO("May", 25),
                         new StatisticalChartsDTO("Jun", 30),
                         new StatisticalChartsDTO("Jul", 35)
-                )).savings(List.of(
+                ),
+                List.of(
                         new StatisticalChartsDTO("Ene", 8),
                         new StatisticalChartsDTO("Feb", 0),
                         new StatisticalChartsDTO("Mar", 7),
@@ -55,17 +54,14 @@ public class Director {
                         new StatisticalChartsDTO("May", 4),
                         new StatisticalChartsDTO("Jun", 6),
                         new StatisticalChartsDTO("Jul", 2)
-                ))
-                .build()
+                )
         );
-        builder.setFooter(getFooter());
     }
 
     public void buildReport3(Builder builder) {
-        builder.setReportCover(new ReportCover("Reporte detallado # 3"));
-        builder.setStatisticalCharts(StatisticalCharts.builder()
-                .title("Datos estadisticos")
-                .investment(List.of(
+        buildReport(builder,
+                "Reporte detallado # 3",
+                List.of(
                         new StatisticalChartsDTO("Ene", 40),
                         new StatisticalChartsDTO("Feb", 43),
                         new StatisticalChartsDTO("Mar", 46),
@@ -73,7 +69,8 @@ public class Director {
                         new StatisticalChartsDTO("May", 52),
                         new StatisticalChartsDTO("Jun", 55),
                         new StatisticalChartsDTO("Jul", 58)
-                )).savings(List.of(
+                ),
+                List.of(
                         new StatisticalChartsDTO("Ene", 15),
                         new StatisticalChartsDTO("Feb", 12),
                         new StatisticalChartsDTO("Mar", 5),
@@ -81,9 +78,23 @@ public class Director {
                         new StatisticalChartsDTO("May", 10),
                         new StatisticalChartsDTO("Jun", 5),
                         new StatisticalChartsDTO("Jul", 8)
-                ))
+                )
+        );
+    }
+
+    private void buildReport(Builder builder, String reportTitle,
+                             List<StatisticalChartsDTO> investments,
+                             List<StatisticalChartsDTO> savings) {
+
+        builder.setReportCover(new ReportCover(reportTitle));
+
+        builder.setStatisticalCharts(StatisticalCharts.builder()
+                .title("Datos estadisticos")
+                .investment(investments)
+                .savings(savings)
                 .build()
         );
+
         builder.setFooter(getFooter());
     }
 

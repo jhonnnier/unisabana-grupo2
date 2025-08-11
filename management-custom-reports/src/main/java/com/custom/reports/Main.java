@@ -1,5 +1,9 @@
 package com.custom.reports;
 
+import com.custom.reports.builders.BuilderReport;
+import com.custom.reports.director.Director;
+import com.custom.reports.report.Report;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -14,7 +18,7 @@ public class Main {
 
     private static void buildReport1() {
         Director director = new Director();
-        ReportBuilder reportBuilder = new ReportBuilder();
+        BuilderReport reportBuilder = new BuilderReport();
         director.buildReport1(reportBuilder);
         Report report = reportBuilder.getReport();
         reportBuilder.print(report);
@@ -23,7 +27,7 @@ public class Main {
 
     private static void buildReport2() {
         Director director = new Director();
-        ReportBuilder reportBuilder = new ReportBuilder();
+        BuilderReport reportBuilder = new BuilderReport();
         director.buildReport2(reportBuilder);
         Report report = reportBuilder.getReport();
         reportBuilder.print(report);
@@ -31,7 +35,7 @@ public class Main {
 
     private static void buildReport3() {
         Director director = new Director();
-        ReportBuilder reportBuilder = new ReportBuilder();
+        BuilderReport reportBuilder = new BuilderReport();
         director.buildReport3(reportBuilder);
         Report report = reportBuilder.getReport();
         reportBuilder.print(report);

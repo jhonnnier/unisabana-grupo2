@@ -1,6 +1,6 @@
-package com.custom.reports;
+package com.custom.reports.builders;
 
-import com.custom.reports.reportContent.*;
+import com.custom.reports.components.*;
 
 public interface Builder {
     ReportCover setReportCover(ReportCover reportCover);

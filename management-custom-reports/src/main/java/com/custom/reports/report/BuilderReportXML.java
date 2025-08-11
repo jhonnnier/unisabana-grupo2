@@ -1,6 +1,6 @@
-package com.custom.reports;
+package com.custom.reports.report;
 
-import com.custom.reports.DTO.StatisticalChartsDTO;
+import com.custom.reports.dto.StatisticalChartsDTO;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -15,7 +15,7 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.util.List;
 
-public class ReportXML {
+public class BuilderReportXML {
     public void reportXML(Report report) {
         try {
             // 1) Crear DocumentBuilder y Document

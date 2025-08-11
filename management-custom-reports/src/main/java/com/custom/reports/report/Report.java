@@ -1,6 +1,6 @@
-package com.custom.reports;
+package com.custom.reports.report;
 
-import com.custom.reports.reportContent.*;
+import com.custom.reports.components.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,6 +23,7 @@ public class Report {
         if (tableRecentMovements != null) {
             this.tableRecentMovements = tableRecentMovements;
         }
+        
         if (trendAnalysis != null) {
             this.trendAnalysis = trendAnalysis;
         }

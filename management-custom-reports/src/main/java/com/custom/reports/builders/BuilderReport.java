@@ -1,26 +1,22 @@
-package com.custom.reports;
+package com.custom.reports.builders;
 
-import com.custom.reports.reportContent.*;
+import com.custom.reports.components.*;
+import com.custom.reports.report.BuilderReportXML;
+import com.custom.reports.report.Report;
+import lombok.Getter;
 
-public class ReportBuilder implements Builder {
+@Getter
+public class BuilderReport implements Builder {
     private ReportCover reportCover;
     private StatisticalCharts statisticalCharts;
     private TableRecentMovements tableRecentMovements;
     private TrendAnalysis trendAnalysis;
     private Footer footer;
 
-    public ReportCover getReportCover() {
-        return reportCover;
-    }
-
     @Override
     public ReportCover setReportCover(ReportCover reportCover) {
         this.reportCover = reportCover;
         return reportCover;
-    }
-
-    public StatisticalCharts getStatisticalCharts() {
-        return statisticalCharts;
     }
 
     @Override
@@ -29,28 +25,16 @@ public class ReportBuilder implements Builder {
         return statisticalCharts;
     }
 
-    public TableRecentMovements getTableRecentMovements() {
-        return tableRecentMovements;
-    }
-
     @Override
     public TableRecentMovements setTableRecentMovements(TableRecentMovements tableRecentMovements) {
         this.tableRecentMovements = tableRecentMovements;
         return tableRecentMovements;
     }
 
-    public TrendAnalysis getTrendAnalysis() {
-        return trendAnalysis;
-    }
-
     @Override
     public TrendAnalysis setTrendAnalysis(TrendAnalysis trendAnalysis) {
         this.trendAnalysis = trendAnalysis;
         return trendAnalysis;
-    }
-
-    public Footer getFooter() {
-        return footer;
     }
 
     @Override
@@ -64,7 +48,7 @@ public class ReportBuilder implements Builder {
     }
 
     public void print(Report report) {
-        ReportXML reportXML = new ReportXML();
+        BuilderReportXML reportXML = new BuilderReportXML();
         reportXML.reportXML(report);
     }
 }
