@@ -3,7 +3,7 @@ package com.custom.reports.builders;
 import com.custom.reports.components.*;
 
 public interface Builder {
-    ReportCover setReportCover(ReportCover reportCover);
+    Header setHeader(Header reportCover);
 
     StatisticalCharts setStatisticalCharts(StatisticalCharts statisticalCharts);
 

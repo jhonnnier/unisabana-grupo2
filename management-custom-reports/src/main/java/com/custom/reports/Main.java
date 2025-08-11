@@ -21,7 +21,7 @@ public class Main {
         BuilderReport reportBuilder = new BuilderReport();
         director.buildReport1(reportBuilder);
         Report report = reportBuilder.getReport();
-        reportBuilder.print(report);
+        reportBuilder.builderReportXML(report);
 
     }
 
@@ -30,7 +30,7 @@ public class Main {
         BuilderReport reportBuilder = new BuilderReport();
         director.buildReport2(reportBuilder);
         Report report = reportBuilder.getReport();
-        reportBuilder.print(report);
+        reportBuilder.builderReportXML(report);
     }
 
     private static void buildReport3() {
@@ -38,6 +38,6 @@ public class Main {
         BuilderReport reportBuilder = new BuilderReport();
         director.buildReport3(reportBuilder);
         Report report = reportBuilder.getReport();
-        reportBuilder.print(report);
+        reportBuilder.builderReportXML(report);
     }
 }

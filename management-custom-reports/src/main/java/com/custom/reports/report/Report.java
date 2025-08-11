@@ -7,13 +7,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Report {
-    private ReportCover reportCover;
+    private Header reportCover;
     private StatisticalCharts statisticalCharts;
     private TableRecentMovements tableRecentMovements;
     private TrendAnalysis trendAnalysis;
     private Footer footer;
 
-    public Report(ReportCover reportCover, StatisticalCharts statisticalCharts, TableRecentMovements tableRecentMovements, TrendAnalysis trendAnalysis, Footer footer) {
+    public Report(Header reportCover, StatisticalCharts statisticalCharts, TableRecentMovements tableRecentMovements, TrendAnalysis trendAnalysis, Footer footer) {
         this.reportCover = reportCover;
 
         if (statisticalCharts != null) {

@@ -7,14 +7,14 @@ import lombok.Getter;
 
 @Getter
 public class BuilderReport implements Builder {
-    private ReportCover reportCover;
+    private Header reportCover;
     private StatisticalCharts statisticalCharts;
     private TableRecentMovements tableRecentMovements;
     private TrendAnalysis trendAnalysis;
     private Footer footer;
 
     @Override
-    public ReportCover setReportCover(ReportCover reportCover) {
+    public Header setHeader(Header reportCover) {
         this.reportCover = reportCover;
         return reportCover;
     }
@@ -47,7 +47,7 @@ public class BuilderReport implements Builder {
         return new Report(reportCover, statisticalCharts, tableRecentMovements, trendAnalysis, footer);
     }
 
-    public void print(Report report) {
+    public void builderReportXML(Report report) {
         BuilderReportXML reportXML = new BuilderReportXML();
         reportXML.reportXML(report);
     }

@@ -3,14 +3,15 @@ package com.custom.reports.director;
 import com.custom.reports.dto.StatisticalChartsDTO;
 import com.custom.reports.builders.Builder;
 import com.custom.reports.components.Footer;
-import com.custom.reports.components.ReportCover;
+import com.custom.reports.components.Header;
 import com.custom.reports.components.StatisticalCharts;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Director {
 
-    public void buildReport1(Builder builder) {
+    public void  buildReport1(Builder builder) {
         buildReport(builder,
                 "Reporte detallado # 1",
                 List.of(
@@ -86,7 +87,7 @@ public class Director {
                              List<StatisticalChartsDTO> investments,
                              List<StatisticalChartsDTO> savings) {
 
-        builder.setReportCover(new ReportCover(reportTitle));
+        builder.setHeader(new Header(reportTitle, LocalDateTime.now()));
 
         builder.setStatisticalCharts(StatisticalCharts.builder()
                 .title("Datos estadisticos")

@@ -13,11 +13,14 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class BuilderReportXML {
     public void reportXML(Report report) {
         try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            
             // 1) Crear DocumentBuilder y Document
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = dbf.newDocumentBuilder();
@@ -35,6 +38,10 @@ public class BuilderReportXML {
             Element tituloReporte = doc.createElement("reportName");
             tituloReporte.setTextContent(report.getReportCover().getReportTitle());
             encabezado.appendChild(tituloReporte);
+
+            Element dateTime = doc.createElement("time");
+            dateTime.setTextContent(report.getReportCover().getDateTime().format(formatter));
+            encabezado.appendChild(dateTime);
 
             // SECTION - <STATISTICAL CHARTS>
             if (report.getStatisticalCharts() != null) {
