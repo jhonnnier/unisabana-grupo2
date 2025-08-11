@@ -1,6 +1,6 @@
-package com.custom.reports.builders;
+package com.p2.custom.reports.builders;
 
-import com.custom.reports.components.*;
+import com.p2.custom.reports.components.*;
 
 public interface Builder {
     Header setHeader(Header reportCover);

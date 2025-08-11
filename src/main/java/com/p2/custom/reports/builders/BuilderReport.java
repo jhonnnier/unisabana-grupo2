@@ -1,8 +1,8 @@
-package com.custom.reports.builders;
+package com.p2.custom.reports.builders;
 
-import com.custom.reports.components.*;
-import com.custom.reports.report.BuilderReportXML;
-import com.custom.reports.report.Report;
+import com.p2.custom.reports.components.*;
+import com.p2.custom.reports.report.BuilderReportXML;
+import com.p2.custom.reports.report.Report;
 import lombok.Getter;
 
 @Getter

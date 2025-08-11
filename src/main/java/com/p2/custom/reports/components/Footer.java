@@ -1,4 +1,4 @@
-package com.custom.reports.components;
+package com.p2.custom.reports.components;
 
 
 import lombok.Builder;

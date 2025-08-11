@@ -1,10 +1,10 @@
-package com.custom.reports.director;
+package com.p2.custom.reports.director;
 
-import com.custom.reports.dto.StatisticalChartsDTO;
-import com.custom.reports.builders.Builder;
-import com.custom.reports.components.Footer;
-import com.custom.reports.components.Header;
-import com.custom.reports.components.StatisticalCharts;
+import com.p2.custom.reports.dto.StatisticalChartsDTO;
+import com.p2.custom.reports.builders.Builder;
+import com.p2.custom.reports.components.Footer;
+import com.p2.custom.reports.components.Header;
+import com.p2.custom.reports.components.StatisticalCharts;
 
 import java.time.LocalDateTime;
 import java.util.List;

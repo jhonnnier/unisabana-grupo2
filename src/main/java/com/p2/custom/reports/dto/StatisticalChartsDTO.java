@@ -1,4 +1,4 @@
-package com.custom.reports.dto;
+package com.p2.custom.reports.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

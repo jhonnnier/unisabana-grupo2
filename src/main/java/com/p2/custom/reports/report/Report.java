@@ -1,6 +1,6 @@
-package com.custom.reports.report;
+package com.p2.custom.reports.report;
 
-import com.custom.reports.components.*;
+import com.p2.custom.reports.components.*;
 import lombok.Getter;
 import lombok.Setter;
 

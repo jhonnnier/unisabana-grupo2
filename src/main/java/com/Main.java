@@ -1,12 +1,16 @@
-package com.custom.reports;
+package com;
 
-import com.custom.reports.builders.BuilderReport;
-import com.custom.reports.director.Director;
-import com.custom.reports.report.Report;
+import com.p2.custom.reports.builders.BuilderReport;
+import com.p2.custom.reports.director.Director;
+import com.p2.custom.reports.report.Report;
 
 public class Main {
 
     public static void main(String[] args) {
+        customReports();
+    }
+
+    private static void customReports() {
         System.out.println("---------------------------------------------------------------");
         buildReport1();
         System.out.println("---------------------------------------------------------------");

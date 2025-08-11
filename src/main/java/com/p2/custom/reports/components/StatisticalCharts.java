@@ -1,6 +1,6 @@
-package com.custom.reports.components;
+package com.p2.custom.reports.components;
 
-import com.custom.reports.dto.StatisticalChartsDTO;
+import com.p2.custom.reports.dto.StatisticalChartsDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

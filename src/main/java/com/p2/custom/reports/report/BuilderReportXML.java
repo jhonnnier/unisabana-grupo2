@@ -1,6 +1,6 @@
-package com.custom.reports.report;
+package com.p2.custom.reports.report;
 
-import com.custom.reports.dto.StatisticalChartsDTO;
+import com.p2.custom.reports.dto.StatisticalChartsDTO;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
