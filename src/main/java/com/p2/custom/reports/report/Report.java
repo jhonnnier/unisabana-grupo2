@@ -4,26 +4,28 @@ import com.p2.custom.reports.components.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 public class Report {
     private Header reportCover;
     private StatisticalCharts statisticalCharts;
-    private TableRecentMovements tableRecentMovements;
-    private TrendAnalysis trendAnalysis;
+    private List<RecentMovements> recentMovements;
+    private List<TrendAnalysis> trendAnalysis;
     private Footer footer;
 
-    public Report(Header reportCover, StatisticalCharts statisticalCharts, TableRecentMovements tableRecentMovements, TrendAnalysis trendAnalysis, Footer footer) {
+    public Report(Header reportCover, StatisticalCharts statisticalCharts, List<RecentMovements> movements, List<TrendAnalysis> trendAnalysis, Footer footer) {
         this.reportCover = reportCover;
 
         if (statisticalCharts != null) {
             this.statisticalCharts = statisticalCharts;
         }
 
-        if (tableRecentMovements != null) {
-            this.tableRecentMovements = tableRecentMovements;
+        if (movements != null) {
+            this.recentMovements = movements;
         }
-        
+
         if (trendAnalysis != null) {
             this.trendAnalysis = trendAnalysis;
         }

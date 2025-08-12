@@ -1,16 +1,19 @@
 package com.p2.custom.reports.builders;
 
 import com.p2.custom.reports.components.*;
+import com.p2.custom.reports.report.BuilderReportPDF;
 import com.p2.custom.reports.report.BuilderReportXML;
 import com.p2.custom.reports.report.Report;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 public class BuilderReport implements Builder {
     private Header reportCover;
     private StatisticalCharts statisticalCharts;
-    private TableRecentMovements tableRecentMovements;
-    private TrendAnalysis trendAnalysis;
+    private List<RecentMovements> tableRecentMovements;
+    private List<TrendAnalysis> trendAnalysis;
     private Footer footer;
 
     @Override
@@ -26,13 +29,13 @@ public class BuilderReport implements Builder {
     }
 
     @Override
-    public TableRecentMovements setTableRecentMovements(TableRecentMovements tableRecentMovements) {
-        this.tableRecentMovements = tableRecentMovements;
-        return tableRecentMovements;
+    public List<RecentMovements> setRecentMovements(List<RecentMovements> recentMovements) {
+        this.tableRecentMovements = recentMovements;
+        return this.tableRecentMovements;
     }
 
     @Override
-    public TrendAnalysis setTrendAnalysis(TrendAnalysis trendAnalysis) {
+    public List<TrendAnalysis> setTrendAnalysis(List<TrendAnalysis> trendAnalysis) {
         this.trendAnalysis = trendAnalysis;
         return trendAnalysis;
     }
@@ -50,5 +53,10 @@ public class BuilderReport implements Builder {
     public void builderReportXML(Report report) {
         BuilderReportXML reportXML = new BuilderReportXML();
         reportXML.reportXML(report);
+    }
+
+    public void builderReportPDF(Report report) {
+        BuilderReportPDF reportPDF = new BuilderReportPDF();
+        reportPDF.reportPDF(report);
     }
 }
