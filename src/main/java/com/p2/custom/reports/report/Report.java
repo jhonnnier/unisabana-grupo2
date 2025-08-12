@@ -11,11 +11,11 @@ import java.util.List;
 public class Report {
     private Header reportCover;
     private StatisticalCharts statisticalCharts;
-    private List<RecentMovements> recentMovements;
-    private List<TrendAnalysis> trendAnalysis;
+    private List<Movement> movements;
+    private List<Trend> trendAnalysis;
     private Footer footer;
 
-    public Report(Header reportCover, StatisticalCharts statisticalCharts, List<RecentMovements> movements, List<TrendAnalysis> trendAnalysis, Footer footer) {
+    public Report(Header reportCover, StatisticalCharts statisticalCharts, List<Movement> movements, List<Trend> trendAnalysis, Footer footer) {
         this.reportCover = reportCover;
 
         if (statisticalCharts != null) {
@@ -23,7 +23,7 @@ public class Report {
         }
 
         if (movements != null) {
-            this.recentMovements = movements;
+            this.movements = movements;
         }
 
         if (trendAnalysis != null) {

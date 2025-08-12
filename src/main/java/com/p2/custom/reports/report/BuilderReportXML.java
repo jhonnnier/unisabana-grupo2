@@ -1,7 +1,7 @@
 package com.p2.custom.reports.report;
 
-import com.p2.custom.reports.components.RecentMovements;
-import com.p2.custom.reports.components.TrendAnalysis;
+import com.p2.custom.reports.components.Movement;
+import com.p2.custom.reports.components.Trend;
 import com.p2.custom.reports.dto.StatisticalChartsDTO;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -31,7 +31,7 @@ public class BuilderReportXML {
             addHeader(doc, root, report);
             addStatisticalCharts(doc, root, report.getStatisticalCharts() != null ? report.getStatisticalCharts().getInvestment() : null,
                     report.getStatisticalCharts() != null ? report.getStatisticalCharts().getSavings() : null);
-            addRecentMovements(doc, root, report.getRecentMovements());
+            addRecentMovements(doc, root, report.getMovements());
             addTendencies(doc, root, report.getTrendAnalysis());
             addFooter(doc, root, report);
 
@@ -92,13 +92,13 @@ public class BuilderReportXML {
         }
     }
 
-    private void addRecentMovements(Document doc, Element parent, List<RecentMovements> movements) {
+    private void addRecentMovements(Document doc, Element parent, List<Movement> movements) {
         if (movements == null || movements.isEmpty()) return;
 
         Element recentMovements = doc.createElement("movements");
         parent.appendChild(recentMovements);
 
-        for (RecentMovements movement : movements) {
+        for (Movement movement : movements) {
             Element movementElement = doc.createElement("movement");
             recentMovements.appendChild(movementElement);
 
@@ -109,13 +109,13 @@ public class BuilderReportXML {
         }
     }
 
-    private void addTendencies(Document doc, Element parent, List<TrendAnalysis> tendencies) {
+    private void addTendencies(Document doc, Element parent, List<Trend> tendencies) {
         if (tendencies == null || tendencies.isEmpty()) return;
 
         Element tendenciesElement = doc.createElement("tendencies");
         parent.appendChild(tendenciesElement);
 
-        for (TrendAnalysis trend : tendencies) {
+        for (Trend trend : tendencies) {
             Element trendElement = doc.createElement("trend");
             tendenciesElement.appendChild(trendElement);
 

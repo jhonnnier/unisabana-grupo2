@@ -1,0 +1,40 @@
+@startuml
+rectangle Cliente { 
+}
+
+class Director {
+   + makeReport(Builder builder)
+ }
+
+interface Builder {
+  + setHeader : Header
+  + setStatisticalCharts : StatisticalCharts
+  + setMovements : List<Movement>
+  + setTrends : List<Trend>
+  + setFooter : Footer
+}
+
+
+class BuilderReport {
+  + getReport : Report
+  + builderReportPDF : void
+  + setHeader(Header header) : Header
+  + setStatisticalCharts(StatisticalCharts statisticalCharts) : StatisticalCharts
+  + setMovements(List<Movement> movements) : >
+  + setTrends(List<Trend> trendAnalysis) : List<Trend>
+  + setFooter(Footer footer) : Footer
+}
+
+class Report {
+
+}
+
+
+Director <-u- Cliente
+Builder <-r- Director
+Builder <|-d- BuilderReport
+BuilderReport -d-> Report
+BuilderReport <-l[#4567ff,dotted]- Cliente
+
+
+@enduml

@@ -48,7 +48,7 @@ public class BuilderReportPDF {
     }
 
     private void printMovements(Report report) {
-        var movements = report.getRecentMovements();
+        var movements = report.getMovements();
         if (movements == null || movements.isEmpty()) return;
 
         saltoLinea();

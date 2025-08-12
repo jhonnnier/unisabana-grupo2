@@ -9,10 +9,7 @@ import lombok.ToString;
 @ToString
 @Builder
 @AllArgsConstructor
-public class RecentMovements {
-    String fecha;
+public class Trend {
+    String type;
     String descripcion;
-    String tipo;
-    double monto;
-    double saldoDespues;
 }

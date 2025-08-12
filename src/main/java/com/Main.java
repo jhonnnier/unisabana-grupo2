@@ -14,6 +14,8 @@ public class Main {
         System.out.println("---------------------------------------------------------------");
         buildReport1();
         System.out.println("---------------------------------------------------------------");
+        buildReport4();
+        System.out.println("---------------------------------------------------------------");
         buildReport2();
         System.out.println("---------------------------------------------------------------");
         buildReport3();
@@ -23,7 +25,7 @@ public class Main {
     private static void buildReport1() {
         Director director = new Director();
         BuilderReport reportBuilder = new BuilderReport();
-        director.buildReport(reportBuilder, 1);
+        director.makeReport(reportBuilder, 1);
         Report report = reportBuilder.getReport();
 //        reportBuilder.builderReportXML(report);
         reportBuilder.builderReportPDF(report);
@@ -32,7 +34,7 @@ public class Main {
     private static void buildReport2() {
         Director director = new Director();
         BuilderReport reportBuilder = new BuilderReport();
-        director.buildReport(reportBuilder, 4);
+        director.makeReport(reportBuilder, 2);
         Report report = reportBuilder.getReport();
 //        reportBuilder.builderReportXML(report);
         reportBuilder.builderReportPDF(report);
@@ -41,7 +43,16 @@ public class Main {
     private static void buildReport3() {
         Director director = new Director();
         BuilderReport reportBuilder = new BuilderReport();
-        director.buildReport(reportBuilder, 3);
+        director.makeReport(reportBuilder, 3);
+        Report report = reportBuilder.getReport();
+//        reportBuilder.builderReportXML(report);
+        reportBuilder.builderReportPDF(report);
+    }
+
+    private static void buildReport4() {
+        Director director = new Director();
+        BuilderReport reportBuilder = new BuilderReport();
+        director.makeReport(reportBuilder, 4);
         Report report = reportBuilder.getReport();
 //        reportBuilder.builderReportXML(report);
         reportBuilder.builderReportPDF(report);

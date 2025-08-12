@@ -5,13 +5,13 @@ import com.p2.custom.reports.components.*;
 import java.util.List;
 
 public interface Builder {
-    Header setHeader(Header reportCover);
+    Header setHeader(Header header);
 
     StatisticalCharts setStatisticalCharts(StatisticalCharts statisticalCharts);
 
-    List<RecentMovements> setRecentMovements(List<RecentMovements> recentMovements);
+    List<Movement> setMovements(List<Movement> movements);
 
-    List<TrendAnalysis> setTrendAnalysis(List<TrendAnalysis> trendAnalysis);
+    List<Trend> setTrends(List<Trend> trendAnalysis);
 
     Footer setFooter(Footer footer);
 }
