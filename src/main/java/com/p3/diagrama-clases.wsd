@@ -1,0 +1,78 @@
+@startuml
+interface Command {
+ 
+  + execute(): void 
+  
+}
+class CommandManager {
+    - undoStack: List<Command>
+    - redoStack: List<Command>
+    + executeCommand(command: Command): void
+    + undo(): void
+    + redo(): void
+}
+class TaskManager{
+
+    - clipboard: Task
+    - history: List<Task>
+    + addTask(task: Task): void
+    + removeTask(task: Task): void
+    + editTask(task: Task): void
+    + completeTask(task: Task): void
+}
+
+class Task {
+    - title: String
+    - description: String
+    - isCompleted: boolean
+    - isDelete: boolean
+    + getTitle(): String
+    + setTitle(title: String): void
+    + getDescription(): String
+    + setDescription(description: String): void
+    + isCompleted(): boolean
+    + isDeleted(): boolean
+
+}
+
+class CreateTask implements Command {
+-  TaskManager taskManager
+- Task  task
+ + constructor(taskManager: TaskManager, Task  task)
+ + execute(): void 
+
+
+   
+}
+
+class EditTask implements Command {
+   -  TaskManager taskManager
+   - Task  task
+    + constructor(taskManager: TaskManager, Task  task)
+   + execute(): void 
+}
+
+
+class DeleteTask implements Command  {
+ -  TaskManager taskManager
+ - Task  task
+  + constructor(taskManager: TaskManager, Task  task)
+ + execute(): void 
+}
+
+
+class CompleteTask implements Command {
+   -  TaskManager taskManager
+   - Task  task
+    + constructor(taskManager: TaskManager, Task  task)
+   + execute(): void 
+}
+   
+Task o-- TaskManager
+TaskManager <|-- CreateTask
+TaskManager <|-- EditTask
+TaskManager <|-- DeleteTask
+TaskManager <|-- CompleteTask
+CommandManager <|-- Command
+
+@enduml
