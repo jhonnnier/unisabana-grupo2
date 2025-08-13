@@ -1,0 +1,71 @@
+@startuml
+title Patrón Builder - Reportes PDF/XML
+
+rectangle Cliente {
+        }
+
+interface ReporteBuilder {
+    + setHeader(String header)
+    + setStatisticalCharts(String statisticalChartType)
+    + setMovements(String movementsData)
+    + setTrends(String trendsData)
+    + setFooter(String footerData)
+    + getResult(): Report
+}
+
+class ReportPDFBuilder implements ReporteBuilder {
+    - header: String
+    - statisticalCharts: String
+    - movements: String
+    - trends: String
+    - footer: String
+    + setHeader(String logo, String client)
+    + setStatisticalCharts(String statisticalChartType)
+    + setMovements(String movementsData)
+    + setTrends(String trendsData)
+    + setFooter(String footerData)
+    + getResult(): ReportPDF
+}
+
+class ReportXMLBuilder implements ReporteBuilder {
+    - header: String
+    - statisticalCharts: String
+    - movements: String
+    - trends: String
+    - footer: String
+    + setHeader(String logo, String client)
+    + setStatisticalCharts(String statisticalChartType)
+    + setMovements(String movementsData)
+    + setTrends(String trendsData)
+    + setFooter(String footerData)
+    + getResult(): ReportXML
+}
+
+class Director {
+    + buildFullReport(ReporteBuilder builder)
+    + buildBasicReport(ReporteBuilder builder)
+}
+
+abstract class Report {
+    - header: String
+    - statisticalCharts: String
+    - movements: String
+    - trends: String
+    - footer: String
+    + show()
+}
+
+class ReportPDF extends Report
+class ReportXML extends Report
+
+Director --> ReporteBuilder
+ReportPDFBuilder --> ReportPDF
+ReportXMLBuilder --> ReportXML
+
+Director <-u- Cliente
+ReportPDFBuilder <-l[#4567ff,dotted]- Cliente
+ReportXMLBuilder <-l[#4567ff,dotted]- Cliente
+
+
+
+@enduml
