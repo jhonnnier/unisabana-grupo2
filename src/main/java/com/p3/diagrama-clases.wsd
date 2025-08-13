@@ -1,7 +1,8 @@
 @startuml
 interface Command {
  
-  + execute(): void 
+  + execute(): void
+  + undo():void
   
 }
 class CommandManager {
@@ -13,8 +14,8 @@ class CommandManager {
 }
 class TaskManager{
 
-    - clipboard: Task
-    - history: List<Task>
+
+    - task: List<Task>
     + addTask(task: Task): void
     + removeTask(task: Task): void
     + editTask(task: Task): void
@@ -40,6 +41,7 @@ class CreateTask implements Command {
 - Task  task
  + constructor(taskManager: TaskManager, Task  task)
  + execute(): void 
++ undo():void
 
 
    
@@ -48,24 +50,30 @@ class CreateTask implements Command {
 class EditTask implements Command {
    -  TaskManager taskManager
    - Task  task
+   - Task previousState
     + constructor(taskManager: TaskManager, Task  task)
    + execute(): void 
+   + undo():void
 }
 
 
 class DeleteTask implements Command  {
  -  TaskManager taskManager
  - Task  task
+ - Task deletedTask
   + constructor(taskManager: TaskManager, Task  task)
  + execute(): void 
+ + undo():void
 }
 
 
 class CompleteTask implements Command {
    -  TaskManager taskManager
    - Task  task
+   - boolean previousCompletionState
     + constructor(taskManager: TaskManager, Task  task)
    + execute(): void 
+   + undo():void
 }
    
 Task o-- TaskManager
