@@ -1,40 +1,71 @@
 @startuml
-rectangle Cliente { 
+title Patrón Builder - Reportes PDF/XML
+
+rectangle Cliente {
+        }
+
+interface ReporteBuilder {
+    + setHeader(String header)
+    + setStatisticalCharts(String statisticalChartType)
+    + setMovements(String movementsData)
+    + setTrends(String trendsData)
+    + setFooter(String footerData)
+    + getResult(): Report
+}
+
+class ReportPDFBuilder implements ReporteBuilder {
+    - header: String
+    - statisticalCharts: String
+    - movements: String
+    - trends: String
+    - footer: String
+    + setHeader(String logo, String client)
+    + setStatisticalCharts(String statisticalChartType)
+    + setMovements(String movementsData)
+    + setTrends(String trendsData)
+    + setFooter(String footerData)
+    + getResult(): ReportPDF
+}
+
+class ReportXMLBuilder implements ReporteBuilder {
+    - header: String
+    - statisticalCharts: String
+    - movements: String
+    - trends: String
+    - footer: String
+    + setHeader(String logo, String client)
+    + setStatisticalCharts(String statisticalChartType)
+    + setMovements(String movementsData)
+    + setTrends(String trendsData)
+    + setFooter(String footerData)
+    + getResult(): ReportXML
 }
 
 class Director {
-   + makeReport(Builder builder)
- }
-
-interface Builder {
-  + setHeader : Header
-  + setStatisticalCharts : StatisticalCharts
-  + setMovements : List<Movement>
-  + setTrends : List<Trend>
-  + setFooter : Footer
+    + buildFullReport(ReporteBuilder builder)
+    + buildBasicReport(ReporteBuilder builder)
 }
 
-
-class BuilderReport {
-  + getReport : Report
-  + builderReportPDF : void
-  + setHeader(Header header) : Header
-  + setStatisticalCharts(StatisticalCharts statisticalCharts) : StatisticalCharts
-  + setMovements(List<Movement> movements) : >
-  + setTrends(List<Trend> trendAnalysis) : List<Trend>
-  + setFooter(Footer footer) : Footer
+abstract class Report {
+    - header: String
+    - statisticalCharts: String
+    - movements: String
+    - trends: String
+    - footer: String
+    + show()
 }
 
-class Report {
+class ReportPDF extends Report
+class ReportXML extends Report
 
-}
-
+Director --> ReporteBuilder
+ReportPDFBuilder --> ReportPDF
+ReportXMLBuilder --> ReportXML
 
 Director <-u- Cliente
-Builder <-r- Director
-Builder <|-d- BuilderReport
-BuilderReport -d-> Report
-BuilderReport <-l[#4567ff,dotted]- Cliente
+ReportPDFBuilder <-l[#4567ff,dotted]- Cliente
+ReportXMLBuilder <-l[#4567ff,dotted]- Cliente
+
 
 
 @enduml
