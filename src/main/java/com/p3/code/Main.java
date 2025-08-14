@@ -1,4 +1,4 @@
-package com.p3;
+package com.p3.code;
 
 import com.p3.code.Command;
 import com.p3.code.CommandManager;
