@@ -1,0 +1,35 @@
+@startuml
+title Patrón Decorator - Notificación de pedido completado
+
+rectangle Client {
+}
+
+interface Notifier {
+    + send(String message)
+}
+
+class EmailNotifier extends BaseNotifier {
+    + send(String message)
+}
+class SlackNotifier extends BaseNotifier {
+                                            + send(String message)
+                                        }
+class SmsNotifier extends BaseNotifier {
+                                          + send(String message)
+                                      }
+class WhatsappNotifier extends BaseNotifier {
+                                               + send(String message)
+                                           }
+
+abstract class BaseNotifier implements Notifier {
+    - wrappee: Notifier
+    + send(message)
+}
+class ConcreteComponentNotifier implements Notifier {
+                                   + send(String message)
+                               }
+
+Notifier <-u- Client
+BaseNotifier o-- Notifier
+
+@enduml
